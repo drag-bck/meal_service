@@ -1,10 +1,12 @@
-var express = require('express');
-var cron = require('node-cron');
+const express = require('express');
+const cron = require('node-cron');
 const axios = require('axios');
-var app = express();
+const app = express();
 const sgMail = require('@sendgrid/mail');
-var compression = require('compression');
-var helmet = require('helmet');
+const compression = require('compression');
+const helmet = require('helmet');
+const path = require('path');
+
 
 app.use(compression());
 app.use(helmet());
@@ -12,7 +14,7 @@ app.use(helmet());
 const emailList = ["kmr.ammit@gmail.com", "ajayynitkkr@gmail.com"];
 
 app.get('/', function (req, res) {
-  res.send('WW#3 is prevented 💣');
+  res.sendFile(path.join(__dirname+'/index.html'));
 });
 
 app.listen(process.env.PORT, function () {
