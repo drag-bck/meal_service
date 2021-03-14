@@ -3,16 +3,20 @@ var cron = require('node-cron');
 const axios = require('axios');
 var app = express();
 const sgMail = require('@sendgrid/mail');
+var compression = require('compression');
+var helmet = require('helmet');
+
+app.use(compression());
+app.use(helmet());
 
 const emailList = ["kmr.ammit@gmail.com", "ajayynitkkr@gmail.com"];
 
 app.get('/', function (req, res) {
-  res.send('Hello World!');
+  res.send('WW#3 is prevented 💣');
 });
 
 app.listen(process.env.PORT, function () {
-  console.log(process.env.SENDGRID_API_KEY);
-  console.log('Example app listening on port 3000!');
+  console.log('Preventing WW#3 on port 3000 💣');
   cron.schedule('0 0 11 * * *', () => {
     fireAll();
   });
