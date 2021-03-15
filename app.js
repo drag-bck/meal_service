@@ -16,6 +16,10 @@ const emailList = ["kmr.ammit@gmail.com", "ajayynitkkr@gmail.com"];
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname+'/index.html'));
 });
+app.get('/getVote',function (req,res){
+    fireAll();
+    res.send("OK")
+})
 
 app.listen(port, function () {
   console.log('Preventing WW#3 on port 💣',port);
