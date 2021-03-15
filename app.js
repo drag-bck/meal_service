@@ -7,7 +7,7 @@ const compression = require('compression');
 const helmet = require('helmet');
 const path = require('path');
 
-
+const port = process.env.PORT||3000;
 app.use(compression());
 app.use(helmet());
 
@@ -17,8 +17,8 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname+'/index.html'));
 });
 
-app.listen(process.env.PORT, function () {
-  console.log('Preventing WW#3 on port 3000 💣');
+app.listen(port, function () {
+  console.log('Preventing WW#3 on port 💣',port);
   cron.schedule('0 0 11 * * *', () => {
     fireAll();
   });
