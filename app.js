@@ -19,7 +19,7 @@ app.get('/', function (req, res) {
 
 app.listen(port, function () {
   console.log('Preventing WW#3 on port 💣',port);
-  cron.schedule('0 0 11 * * *', () => {
+  cron.schedule('0 30 5 * * *', () => {
     fireAll();
   });
 });
